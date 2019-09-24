@@ -8,49 +8,30 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        
                 <script
            src="https://code.jquery.com/jquery-3.4.1.min.js"
            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
            crossorigin="anonymous"></script>
+           
+           <script src="{{url('/')}}/js/categoria.js" type="text/javascript"/></script>
         
     </head>
     <body>
         
-        <script>
+
+        <a href="{{route('categoria.create')}}">Adicionar Categoria</a><br/>
+        <br/>
         
-        function eliminarCategoria(idForm, destino){
-           dadosForm = $('#'+idForm).serialize();
-            
-        $.ajax({
-            
-        method: 'post',
-        url: destino,
-        data: dadosForm,
-        dataType: 'html',
-        success: function(data){
-            //Ação de sucesso
-            if(data == 'true'){
-                $('#linha'+idForm).remove();
-            }else {
-                alert('Não foi possível eliminar a categoria!');
-            }
-        },
-        error: function (argument){
-            alert('Erro ao elmininar categoria!');
-            
-        }
-            });
-            
-            return false;
-            
-        }
-    
-        </script>
+        
+        <button style="background-color: #6cb2eb;" onclick="mostrarEsconderTitulo();">Mostrar/Esconder Título</button>
+       
+        <br/>
+        <h2 id="titulo" hidden>Listagem de categorias</h2><br/>
         
         
         
         
-        <a href="{{route('categoria.create')}}">Adicionar Categoria</a>
         <table style="width:50%;">
             <thead>
                 <tr>
